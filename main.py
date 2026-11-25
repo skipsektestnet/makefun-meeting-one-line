@@ -12,6 +12,7 @@ def validate():
     """Check the entry is a single line of 1 to 200 characters."""
     assert LINE.count("\n") == 0, "entry must be a single line"
     assert 0 < len(LINE) <= 200, f"expected 1-200 chars, got {len(LINE)}"
+    assert LINE == LINE.strip(), "entry must not start or end with whitespace"
     assert LINE.count(".") == 1 and LINE.endswith("."), "entry must be one sentence"
     return True
 
